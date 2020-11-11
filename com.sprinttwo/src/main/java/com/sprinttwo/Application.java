@@ -1,5 +1,6 @@
 package com.sprinttwo;
 
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -34,7 +35,7 @@ public class Application {
 		};
 	}
 
-	@Bean
+	/*@Bean
 	InitializingBean sendDatabase2() {
 		return () -> {
 			userrep.save(new User("janani","karthikA123","cutomer"));

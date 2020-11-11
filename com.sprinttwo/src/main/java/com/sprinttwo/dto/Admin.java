@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="forest_admin1")
+@Table(name="forest_admin17")
 public class Admin {
 	@Id
 	@GeneratedValue

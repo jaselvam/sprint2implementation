@@ -23,29 +23,18 @@ public class SwaggerConfig {
 	@Bean
 	public Docket api() 
 	{
-		String groupName="Admin Access";
+		String groupName="Admin and User Access";
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.any())
 				.paths(pathsToBeDocumented()).build().groupName(groupName);
 	}
 	
 	@SuppressWarnings("unchecked")
 	private Predicate<String> pathsToBeDocumented() {
-		return or(ant("/Forest/Admin/**"));
+		return or(ant("/Admin/**"),(ant("/User/**")));
 	}
-	
-	/*@Bean
-	public Docket apii() {
-		String groupName="User Access";
-		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.any())
-				.paths(pathsToBeDocument()).build().groupName(groupName);
-	}
-	@SuppressWarnings("unchecked")
-	private Predicate<String> pathsToBeDocument(){
-		return or(ant("/Forest/User/**"));
-	}*/
 	
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Admin API").description("Forest Management REST API").license("Apache 2.0")
+		return new ApiInfoBuilder().title("Forest API").description("Forest Management REST API").license("Apache 2.0")
 				.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").version("1.0.0").build();
 	}
 	

@@ -17,8 +17,8 @@ import com.sprinttwo.service.UserService;
 
 
 @Controller
-@RequestMapping("/Forest/User")
-public class UserController {
+@RequestMapping("/User")
+public class UserController implements IUserController{
 	@Autowired
 	private UserService userService;
 	

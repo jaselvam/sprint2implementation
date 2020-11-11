@@ -13,7 +13,7 @@ import com.sprinttwo.utility.ValidateAdmin;
 
 
 @Service
-public class AdminService {
+public class AdminService implements IAdminService{
 	@Autowired
 	private AdminRepository adminRepository;
 	
@@ -28,27 +28,23 @@ public class AdminService {
 		}
 	}
 	public Admin insertAdmin(Admin admin) {
-		
-		String name=admin.getAdminName();
-		
-		if(name.matches(ValidateAdmin.nameregex) && admin.getAdminPassword().matches(ValidateAdmin.passwordregex))
+		try
 		{
 			return adminRepository.save(admin);
 		}
-		
-		else{
+		catch(InvalidOperation ie){
 			
 			throw new InvalidOperation("Admin not inserted");
 		}
 	
 	}
 	public Admin updateAdmin(Admin admin) {
-		if(admin!=null && admin.getAdminName().matches(ValidateAdmin.nameregex) && admin.getAdminPassword().matches(ValidateAdmin.passwordregex))
+		try
 		{
 			adminRepository.save(admin);
 			return admin;
 		}
-		else
+		catch(InvalidOperation ie)
 		{
 			throw new InvalidOperation("Admin not updated");
 			

@@ -19,8 +19,8 @@ import com.sprinttwo.service.AdminService;
 
 
 @Controller
-@RequestMapping("/Forest/Admin")
-public class AdminController {
+@RequestMapping("/Admin")
+public class AdminController implements IAdminController{
 	@Autowired
 	private AdminService adminService;
 	

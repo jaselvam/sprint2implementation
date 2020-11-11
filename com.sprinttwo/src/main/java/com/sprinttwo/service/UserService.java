@@ -9,7 +9,7 @@ import com.sprinttwo.repository.UserRepository;
 
 
 @Service
-public class UserService {
+public class UserService implements IUserService{
 	@Autowired
 	private UserRepository userrepository;
 	

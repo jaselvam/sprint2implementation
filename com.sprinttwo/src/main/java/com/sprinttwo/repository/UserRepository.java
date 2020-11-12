@@ -7,6 +7,6 @@ import com.sprinttwo.dto.User;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User,String>{
+public interface UserRepository extends JpaRepository<User,String>{// all the methods present in the JpaRepository can be used by UserRepository
 
 }

@@ -8,20 +8,22 @@ import com.sprinttwo.exception.InvalidOperation;
 import com.sprinttwo.repository.UserRepository;
 
 
-@Service
+@Service    //@Service annotation is used to mark the class as a service provider
 public class UserService implements IUserService{
-	@Autowired
+	@Autowired     // To establish relationship between UserRepository and UserService
 	private UserRepository userrepository;
 	
 	public String login(User user) {
+		
 		String userName=user.getUserName();
-		User loginUser=userrepository.findById(userName).get();
+		User loginUser=userrepository.findById(userName).get();  //findById is used to find any particular record using id
 		if(loginUser==null)
 		{
+			
 			try {
 			throw new InvalidOperation("Please enter correct details");
 			}
-			catch(InvalidOperation ie)
+			catch(InvalidOperation ie)       // throws the user defined exceptionwhen details entered by the user is does not match the record in database
 			{
 				System.out.println(ie);
 			}
@@ -32,8 +34,7 @@ public class UserService implements IUserService{
 			String uname=loginUser.getUserName();
 			if(pwd.equals(user.getUserPassword()) && uname.equalsIgnoreCase(user.getUserName()))
 			{
-				String str=loginUser.getUserName()+" has successfully logged in";
-				return str;
+				return loginUser.getUserName()+" has successfully logged in";
 			}
 		}
 		return null;
@@ -42,7 +43,7 @@ public class UserService implements IUserService{
 	public User insertUser(User user) {
 		if(user!=null)
 		{
-			return userrepository.save(user);
+			return userrepository.save(user);  //Save() method is used to insert record into the table.
 		}
 		else
 		{
@@ -51,7 +52,7 @@ public class UserService implements IUserService{
 	}
 	public boolean deleteAdminbyName(String userName) {
 		if(userName!=null) {
-			userrepository.deleteById(userName);
+			userrepository.deleteById(userName);  //DeleteById method is presesnt in JpaRepository used to delete a record based on Id
 			return true;
 		}
 		else

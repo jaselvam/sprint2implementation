@@ -16,13 +16,13 @@ import com.sprinttwo.service.UserService;
 
 
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class)    //ApplicationTests class extends MockitoExtension class
 public class UserTests {
 	private MockMvc mockMvc;
-	@Mock
+	@Mock            //This annotation is used to craete mocked instances automatically.
 	UserService userServices;
 
-	@InjectMocks
+	@InjectMocks         //This annotation is used to inject mock fields into the tested object automatically 
 	UserController userController;
 	@Test
 	void testInsertUser() {

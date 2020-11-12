@@ -5,17 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
-@Entity
-@Table(name="forest_admin17")
+@Entity       //One of the mandatory annotations. This annotation indicates that this class is a entity class
+@Table(name="forest_admin17")    // @Table annotation is used to declare the table name 
 public class Admin {
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer id;     // Id is automatically generated because of @Generatedvalue annotation
 	private String adminName;
 	private String adminPassword;
 	
-	public Admin() {
+	public Admin() {   // zero-parametized constructor
 		super();
 	}
 

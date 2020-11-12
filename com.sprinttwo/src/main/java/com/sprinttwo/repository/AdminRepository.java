@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.sprinttwo.dto.Admin;
 
 
-
-
 @Repository
-public interface AdminRepository extends JpaRepository<Admin,Integer>{
+public interface AdminRepository extends JpaRepository<Admin,Integer>{    // all the methods present in the JpaRepository can be used by AdminRepository
 
 }

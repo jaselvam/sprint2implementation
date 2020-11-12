@@ -14,11 +14,11 @@ import com.sprinttwo.repository.UserRepository;
 
 
 
-@SpringBootApplication
+@SpringBootApplication  // single annotation is equivalent to @Configuration,@EnableAutoConfiguration,@ComponentScan
 public class Application {
-	@Autowired
+	@Autowired   // to establish relation with admin repository
 	AdminRepository adminrepo;
-	@Autowired
+	@Autowired      // to establish relationship with user repository
 	UserRepository userrep;
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

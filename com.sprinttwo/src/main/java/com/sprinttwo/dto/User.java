@@ -5,15 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="User_Controller12")
+@Entity         //One of the mandatory annotations. This annotation indicates that this class is a entity class
+@Table(name="User_Controller12")            // @Table annotation is used to declare the table name 
 public class User {
 	@Id
-	private String userName;
+	private String userName;      //Username is declared as primary key
 	private String userPassword;
 	private String role;
 	
-	public User() {
+	public User() {        // zero-parametized constructor
 		super();
 	}
 	public User(String userName, String userPassword, String role) {

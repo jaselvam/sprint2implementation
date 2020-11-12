@@ -17,7 +17,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2
+@EnableSwagger2        // This annotation is used to enable the swagger2 for your spring boot application
 public class SwaggerConfig {
 
 	@Bean
@@ -28,7 +28,7 @@ public class SwaggerConfig {
 				.paths(pathsToBeDocumented()).build().groupName(groupName);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")  //supress the unchecked warnings
 	private Predicate<String> pathsToBeDocumented() {
 		return or(ant("/Admin/**"),(ant("/User/**")));
 	}
